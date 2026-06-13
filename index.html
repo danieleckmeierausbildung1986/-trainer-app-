@@ -8,204 +8,112 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; }
 
-  /* ── STARTSCREEN ── */
-  #startscreen {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    background: #f5f5f3;
-  }
-  .start-logo { font-size: 48px; margin-bottom: 16px; }
-  .start-title { font-size: 26px; font-weight: 500; margin-bottom: 6px; text-align: center; }
-  .start-sub { font-size: 15px; color: #666; margin-bottom: 48px; text-align: center; }
-  .start-cards { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .header { background: #1a1a1a; color: #fff; padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+  .header h1 { font-size: 16px; font-weight: 500; }
+  .header .subtitle { font-size: 12px; color: #999; margin-top: 2px; }
 
-  .start-card {
-    width: 260px;
-    border-radius: 16px;
-    border: 1.5px solid #e0e0e0;
-    background: #fff;
-    padding: 36px 28px;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-    text-align: center;
-  }
-  .start-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
-  .start-card.lasi:hover { border-color: #1a5276; }
-  .start-card.stapler:hover { border-color: #145a32; }
-  .start-card .card-icon { font-size: 52px; margin-bottom: 16px; }
-  .start-card .card-title { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
-  .start-card.lasi .card-title { color: #1a5276; }
-  .start-card.stapler .card-title { color: #145a32; }
-  .start-card .card-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 20px; }
-  .start-card .card-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-  .tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; font-weight: 500; }
-  .tag.lasi { background: #eaf2ff; color: #1a5276; }
-  .tag.stapler { background: #eafaf1; color: #145a32; }
-  .start-card .card-btn {
-    margin-top: 24px;
-    display: inline-block;
-    padding: 10px 28px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  .start-card.lasi .card-btn { background: #1a5276; }
-  .start-card.lasi .card-btn:hover { background: #154360; }
-  .start-card.stapler .card-btn { background: #145a32; }
-  .start-card.stapler .card-btn:hover { background: #0e3d22; }
-
-  .start-footer { margin-top: 40px; font-size: 12px; color: #aaa; text-align: center; }
-
-  /* ── APP ── */
-  #app { display: none; }
-
-  .header { background: #1a1a1a; color: #fff; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
-  .header-left { display: flex; align-items: center; gap: 12px; }
-  .header h1 { font-size: 15px; font-weight: 500; }
-  .header .subtitle { font-size: 11px; color: #999; margin-top: 2px; }
-  .btn-back { background: transparent; border: 1px solid #555; color: #ccc; padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; }
-  .btn-back:hover { border-color: #aaa; color: #fff; }
-
-  .mode-bar { display: flex; gap: 8px; padding: 12px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; align-items: center; }
-  .mode-btn { padding: 6px 16px; border-radius: 20px; border: 1.5px solid #ddd; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: #555; transition: all 0.15s; }
+  .mode-bar { display: flex; gap: 8px; padding: 14px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; }
+  .mode-btn { padding: 7px 18px; border-radius: 20px; border: 1.5px solid #ddd; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: #555; transition: all 0.15s; }
   .mode-btn.active-lasi { background: #1a5276; border-color: #1a5276; color: #fff; }
   .mode-btn.active-stapler { background: #145a32; border-color: #145a32; color: #fff; }
-  .mode-btn.active-both { background: #7d3c98; border-color: #7d3c98; color: #fff; }
 
-  .chips-area { padding: 10px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; flex-wrap: wrap; gap: 7px; }
-  .chip { padding: 5px 12px; border-radius: 16px; border: 1px solid #ddd; background: #fafafa; cursor: pointer; font-size: 12px; color: #333; transition: all 0.15s; white-space: nowrap; }
+  .chips-area { padding: 12px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 6px 12px; border-radius: 16px; border: 1px solid #ddd; background: #fafafa; cursor: pointer; font-size: 12px; color: #333; transition: all 0.15s; white-space: nowrap; }
+  .chip:hover { border-color: #888; background: #f0f0f0; }
   .chip.lasi { border-color: #aac4de; color: #1a5276; background: #eaf2ff; }
   .chip.lasi:hover { background: #d4e8ff; }
   .chip.stapler { border-color: #a9dfbf; color: #145a32; background: #eafaf1; }
   .chip.stapler:hover { background: #d5f5e3; }
-  .chip.both { border-color: #d2b4de; color: #7d3c98; background: #f5eeff; }
-  .chip.both:hover { background: #e8d5ff; }
 
-  .input-area { padding: 12px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; gap: 10px; align-items: center; }
+  .input-area { padding: 14px 20px; background: #fff; border-bottom: 1px solid #e5e5e5; display: flex; gap: 10px; align-items: center; }
   .input-area input { flex: 1; padding: 10px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; outline: none; }
   .input-area input:focus { border-color: #555; }
   .btn-ask { padding: 10px 20px; background: #1a1a1a; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
   .btn-ask:hover { background: #333; }
   .btn-ask:disabled { background: #ccc; cursor: not-allowed; }
-  .btn-mic { padding: 10px 14px; background: transparent; border: 1.5px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all 0.15s; }
+  .btn-mic { padding: 10px 14px; background: transparent; border: 1.5px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 18px; transition: all 0.15s; }
   .btn-mic:hover { border-color: #888; }
   .btn-mic.listening { border-color: #e74c3c; background: #fdecea; animation: pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.6} }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
 
-  .main { display: flex; height: calc(100vh - 185px); min-height: 400px; }
+  .main { display: flex; gap: 0; height: calc(100vh - 210px); min-height: 400px; }
 
-  .history-panel { width: 210px; min-width: 210px; background: #fff; border-right: 1px solid #e5e5e5; padding: 12px; overflow-y: auto; }
-  .history-panel h3 { font-size: 10px; font-weight: 600; color: #bbb; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .history-panel { width: 220px; min-width: 220px; background: #fff; border-right: 1px solid #e5e5e5; padding: 12px; overflow-y: auto; }
+  .history-panel h3 { font-size: 11px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
   .history-item { padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; color: #333; margin-bottom: 4px; border: 1px solid transparent; line-height: 1.4; }
   .history-item:hover { background: #f5f5f3; border-color: #e5e5e5; }
-  .history-item .hist-mode { font-size: 10px; color: #bbb; margin-bottom: 2px; }
+  .history-item .hist-mode { font-size: 10px; color: #999; margin-bottom: 2px; }
 
   .answer-area { flex: 1; padding: 20px; overflow-y: auto; }
   .answer-box { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; max-width: 800px; }
-  .answer-box .question-label { font-size: 11px; color: #999; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .answer-box .question-label { font-size: 11px; color: #999; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
   .answer-box .question-text { font-size: 15px; font-weight: 500; margin-bottom: 16px; color: #1a1a1a; }
-  .answer-content { font-size: 14px; line-height: 1.75; color: #222; }
-  .answer-content p { margin-bottom: 10px; }
+  .answer-box .answer-content { font-size: 14px; line-height: 1.7; color: #222; }
   .answer-content strong { font-weight: 600; }
+  .answer-content .source-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin: 2px; }
+  .source-tag.lasi-tag { background: #eaf2ff; color: #1a5276; }
+  .source-tag.stapler-tag { background: #eafaf1; color: #145a32; }
+  .answer-content .paragraph { margin-bottom: 12px; }
+  .answer-content .rule-ref { font-size: 12px; color: #666; margin-top: 16px; padding-top: 12px; border-top: 1px solid #eee; }
 
   .loading-box { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; max-width: 800px; display: flex; align-items: center; gap: 12px; }
   .spinner { width: 20px; height: 20px; border: 2px solid #eee; border-top-color: #555; border-radius: 50%; animation: spin 0.8s linear infinite; }
-  @keyframes spin { to{transform:rotate(360deg)} }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .welcome-box { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 30px; max-width: 600px; }
+  .welcome-box h2 { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+  .welcome-box p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 8px; }
+  .mode-indicator { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .mode-indicator.lasi { background: #eaf2ff; color: #1a5276; }
+  .mode-indicator.stapler { background: #eafaf1; color: #145a32; }
+  .mode-indicator.both { background: #f5f0ff; color: #4a235a; }
 
   .error-box { background: #fdecea; border: 1px solid #f5c6c6; border-radius: 10px; padding: 20px; max-width: 800px; color: #922b21; font-size: 14px; }
 </style>
 </head>
 <body>
 
-<!-- STARTSCREEN -->
-<div id="startscreen">
-  <div class="start-logo">📋</div>
-  <div class="start-title">Trainer-Schnellauskunft</div>
-  <div class="start-sub">Regelwerk-KI für den Schulungsraum — Paragraph und Quelle in Sekunden</div>
-
-  <div class="start-cards">
-
-    <div class="start-card lasi" onclick="startApp('lasi')">
-      <div class="card-icon">🚛</div>
-      <div class="card-title">Ladungssicherung</div>
-      <div class="card-desc">Fragen zu Zurrkräften, Reibbeiwerten, Haftung, Direktzurren und Vorschriften</div>
-      <div class="card-tags">
-        <span class="tag lasi">VDI 2700</span>
-        <span class="tag lasi">BGI 649</span>
-        <span class="tag lasi">StVO</span>
-        <span class="tag lasi">HGB</span>
-        <span class="tag lasi">ADSp</span>
-        <span class="tag lasi">GGVSEB</span>
-      </div>
-      <button class="card-btn">LaSi starten →</button>
-    </div>
-
-    <div class="start-card stapler" onclick="startApp('stapler')">
-      <div class="card-icon">🏭</div>
-      <div class="card-title">Staplerschulung</div>
-      <div class="card-desc">Fragen zu Fahrausweispflicht, Prüffristen, Beauftragung und Unfallverhütung</div>
-      <div class="card-tags">
-        <span class="tag stapler">DGUV 308-001</span>
-        <span class="tag stapler">DGUV Vo 68</span>
-        <span class="tag stapler">BetrSichV</span>
-        <span class="tag stapler">ArbSchG</span>
-      </div>
-      <button class="card-btn">Stapler starten →</button>
-    </div>
-
+<div class="header">
+  <div>
+    <div style="font-size:20px; margin-bottom:2px;">📋</div>
   </div>
-
-  <div class="start-footer">BMW Group Logistik · Werk 2.72 Niederviehbach</div>
+  <div>
+    <h1>Trainer-Schnellauskunft</h1>
+    <div class="subtitle">Regelwerk-KI für Schulungsraum-Fragen</div>
+  </div>
 </div>
 
-<!-- APP -->
-<div id="app">
+<div class="mode-bar">
+  <span style="font-size:13px; color:#666; align-self:center; margin-right:4px;">Modus:</span>
+  <button class="mode-btn" id="btn-lasi" onclick="setMode('lasi')">🚛 LaSi</button>
+  <button class="mode-btn" id="btn-stapler" onclick="setMode('stapler')">🏭 Stapler</button>
+  <button class="mode-btn" id="btn-both" onclick="setMode('both')" style="border-color:#c39bd3; color:#4a235a;">⚡ Beide</button>
+</div>
 
-  <div class="header">
-    <div class="header-left">
-      <div>
-        <div class="header h1" id="header-title" style="font-size:15px;font-weight:500;">Trainer-Schnellauskunft</div>
-        <div class="subtitle" id="header-sub"></div>
-      </div>
-    </div>
-    <button class="btn-back" onclick="goBack()">← Startseite</button>
+<div class="chips-area" id="chips-area"></div>
+
+<div class="input-area">
+  <input type="text" id="question-input" placeholder="Frage eingeben..." onkeydown="if(event.key==='Enter')askQuestion()">
+  <button class="btn-mic" id="btn-mic" onclick="toggleMic()" title="Spracheingabe">🎤</button>
+  <button class="btn-ask" id="btn-ask" onclick="askQuestion()">Fragen</button>
+</div>
+
+<div class="main">
+  <div class="history-panel">
+    <h3>Verlauf</h3>
+    <div id="history-list"></div>
   </div>
-
-  <div class="mode-bar">
-    <span style="font-size:12px;color:#888;margin-right:4px;">Modus:</span>
-    <button class="mode-btn" id="btn-lasi" onclick="setMode('lasi')">🚛 LaSi</button>
-    <button class="mode-btn" id="btn-stapler" onclick="setMode('stapler')">🏭 Stapler</button>
-    <button class="mode-btn" id="btn-both" onclick="setMode('both')">⚡ Beide</button>
-  </div>
-
-  <div class="chips-area" id="chips-area"></div>
-
-  <div class="input-area">
-    <input type="text" id="question-input" placeholder="Frage eingeben..." onkeydown="if(event.key==='Enter')askQuestion()">
-    <button class="btn-mic" id="btn-mic" onclick="toggleMic()" title="Spracheingabe">🎤</button>
-    <button class="btn-ask" id="btn-ask" onclick="askQuestion()">Fragen</button>
-  </div>
-
-  <div class="main">
-    <div class="history-panel">
-      <h3>Verlauf</h3>
-      <div id="history-list"><div style="font-size:12px;color:#ccc;">Noch keine Fragen</div></div>
-    </div>
-    <div class="answer-area" id="answer-area">
-      <div class="answer-box">
-        <div class="answer-content" id="welcome-text"></div>
-      </div>
+  <div class="answer-area" id="answer-area">
+    <div class="welcome-box">
+      <h2>Willkommen</h2>
+      <p>Wähle einen Modus, tippe eine Frage oder klicke einen Schnellzugriff-Chip.</p>
+      <p>Die KI antwortet direkt aus dem Regelwerk – mit Paragraphen und Quellenangabe.</p>
+      <p style="margin-top:16px;"><strong>Modi:</strong></p>
+      <p><span class="mode-indicator lasi">LaSi</span> — VDI 2700, BGI 649, DGUV Vo 70, StVO, HGB, ADSp, Ratgeber Lkw, GGVSEB</p>
+      <p style="margin-top:6px;"><span class="mode-indicator stapler">Stapler</span> — DGUV Grundsatz 308-001, DGUV Vorschrift 68/70</p>
+      <p style="margin-top:6px;"><span class="mode-indicator both">Beide</span> — Alle Wissensquellen</p>
     </div>
   </div>
-
 </div>
 
 <script>
@@ -216,11 +124,11 @@ const CHIPS = {
     "Reibbeiwert Holz auf Stahl?",
     "Direktzurren – wann zulässig?",
     "Ablegereife Zurrmittel",
+    "Sicherungskraft berechnen",
     "Curtainsider – was gilt?",
     "Verpflichtungen des Fahrers",
+    "VDI 2700 – was ist das?",
     "Frachtführerhaftung nach HGB",
-    "VDI 2700 – rechtliche Bedeutung",
-    "Vorspannkraft beim Niederzurren",
   ],
   stapler: [
     "Wie oft muss ein Stapler geprüft werden?",
@@ -229,72 +137,70 @@ const CHIPS = {
     "Prüfpflicht nach DGUV Vo 68",
     "Standsicherheit beim Heben",
     "Mitfahren auf dem Stapler – erlaubt?",
+    "Führerschein oder Fahrausweis?",
     "Aufsichtspflicht des Unternehmers",
     "Fahrerlaubnis entziehen – wie?",
     "Sichtbehinderung beim Transport",
-    "Unterschied Führerschein / Fahrausweis",
   ],
   both: [
     "Unterweisungspflicht Arbeitgeber",
     "Betriebsanweisung – was muss rein?",
+    "Ordnungswidrigkeiten Gefahrgut",
     "Gefährdungsbeurteilung Pflicht",
     "Dokumentationspflichten",
-    "Ordnungswidrigkeiten – welche Bußgelder?",
   ]
 };
 
 const SYSTEM_PROMPTS = {
   lasi: `Du bist eine Regelwerk-KI für Ladungssicherungs-Trainer (LaSi). Du beantwortest Fragen ausschließlich auf Basis dieser Wissensquellen:
+
 - VDI 2700 (Ladungssicherung auf Straßenfahrzeugen, Grundnorm)
-- VDI 2700 Blatt 2 (Zurrkräfte), Blatt 7 (Berechnung)
-- BGI 649 (Berechnung, Direktzurren, Reibbeiwerte, Haftung)
+- VDI 2700 Blatt 2 (Zurrkräfte)
+- VDI 2700 Blatt 7 (Berechnung)
+- BGI 649 (Leitfaden Ladungssicherung – Berechnung, Direktzurren, Reibbeiwerte, Haftung)
 - DGUV Vorschrift 70 (Fahrzeuge – Unfallverhütungsvorschrift)
-- StVO §§ 22, 23, 29
-- StVZO §§ 31, 34
+- StVO §§ 22, 23, 29 (Ladung, Fahrerverantwortung)
+- StVZO §§ 31, 34 (Halterpflichten, Achslasten)
 - HGB §§ 407-450 (Frachtvertrag, Frachtführerhaftung, CMR)
-- StGB §§ 222, 229, 315b
-- ADSp 2017 (Haftungsgrenzen, Fristen)
+- StGB §§ 222, 229, 315b (fahrlässige Tötung/Körperverletzung, gefährlicher Eingriff)
+- ADSp 2017 (Allgemeine Deutsche Spediteurbedingungen – Haftungsgrenzen, Fristen)
 - Ratgeber Lkw 226.2 DP (Papierrollen, Curtainsider, Reibbeiwerte Praxis)
-- GGVSEB (Pflichten Verlader, Beförderer, Fahrzeugführer)
+- GGVSEB (Gefahrgutverordnung Straße – Pflichten Verlader, Beförderer, Fahrzeugführer)
 
 Antworte IMMER mit:
-1. Direkter, klarer Antwort (2-4 Sätze)
+1. Direkter, klarer Antwort auf die Frage (2-4 Sätze)
 2. Genauer Quellenangabe (Norm, Paragraph, Abschnitt)
-3. Optional: 1 Satz Praxishinweis für den Schulungsraum
+3. Praxishinweis für den Schulungsraum (optional, 1 Satz)
 
-Max. 200 Wörter. Keine Einleitung. Immer auf Deutsch.`,
+Format: Halte Antworten kompakt (max. 200 Wörter). Keine langen Einleitungen. Immer auf Deutsch.`,
 
   stapler: `Du bist eine Regelwerk-KI für Stapler-Trainer. Du beantwortest Fragen ausschließlich auf Basis dieser Wissensquellen:
+
 - DGUV Grundsatz 308-001 (Ausbildung und Beauftragung der Fahrer von Flurförderzeugen)
-- DGUV Vorschrift 68 (Flurförderzeuge)
+- DGUV Vorschrift 68 (Flurförderzeuge – früher BGV D27)
 - DGUV Vorschrift 70 (Fahrzeuge)
-- BetrSichV (Prüfpflichten)
-- ArbSchG (Unterweisungspflicht)
-- DGUV Regel 108-007 (Lagereinrichtungen)
+- BetrSichV (Betriebssicherheitsverordnung – Prüfpflichten)
+- ArbSchG (Arbeitsschutzgesetz – Unterweisungspflicht)
+- DGUV Regel 108-007 (Lagereinrichtungen und -geräte)
 
 Antworte IMMER mit:
-1. Direkter, klarer Antwort (2-4 Sätze)
+1. Direkter, klarer Antwort auf die Frage (2-4 Sätze)
 2. Genauer Quellenangabe (Norm, Paragraph, Abschnitt)
-3. Optional: 1 Satz Praxishinweis für den Schulungsraum
+3. Praxishinweis für den Schulungsraum (optional, 1 Satz)
 
-Max. 200 Wörter. Keine Einleitung. Immer auf Deutsch.`,
+Format: Halte Antworten kompakt (max. 200 Wörter). Keine langen Einleitungen. Immer auf Deutsch.`,
 
-  both: `Du bist eine Regelwerk-KI für Stapler- und Ladungssicherungs-Trainer. Alle Regelwerke beider Bereiche stehen zur Verfügung:
-LaSi: VDI 2700, BGI 649, DGUV Vo 70, StVO, StVZO, HGB, StGB, ADSp 2017, Ratgeber Lkw 226.2 DP, GGVSEB
-Stapler: DGUV Grundsatz 308-001, DGUV Vo 68, BetrSichV, ArbSchG
+  both: `Du bist eine Regelwerk-KI für Stapler- und Ladungssicherungs-Trainer. Du beantwortest Fragen auf Basis aller relevanten Regelwerke:
+
+LaSi: VDI 2700, BGI 649, DGUV Vo 70, StVO §§ 22/23, StVZO §§ 31/34, HGB, StGB, ADSp 2017, Ratgeber Lkw 226.2 DP, GGVSEB
+Stapler: DGUV Grundsatz 308-001, DGUV Vorschrift 68, BetrSichV, ArbSchG
 
 Antworte IMMER mit:
-1. Direkter, klarer Antwort (2-4 Sätze)
+1. Direkter, klarer Antwort auf die Frage (2-4 Sätze)
 2. Genauer Quellenangabe (Norm, Paragraph, Abschnitt)
-3. Optional: 1 Satz Praxishinweis für den Schulungsraum
+3. Praxishinweis für den Schulungsraum (optional, 1 Satz)
 
-Max. 200 Wörter. Keine Einleitung. Immer auf Deutsch.`
-};
-
-const WELCOME = {
-  lasi: 'Ladungssicherung – Regelwerk geladen.<br><br>Tippe eine Frage oder klicke einen Chip oben.',
-  stapler: 'Staplerschulung – Regelwerk geladen.<br><br>Tippe eine Frage oder klicke einen Chip oben.',
-  both: 'Alle Regelwerke geladen.<br><br>Tippe eine Frage oder klicke einen Chip oben.'
+Format: Halte Antworten kompakt (max. 200 Wörter). Keine langen Einleitungen. Immer auf Deutsch.`
 };
 
 let currentMode = 'lasi';
@@ -302,35 +208,23 @@ let history = [];
 let recognition = null;
 let isListening = false;
 
-function startApp(mode) {
-  document.getElementById('startscreen').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  setMode(mode);
-}
-
-function goBack() {
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('startscreen').style.display = 'flex';
-}
-
 function setMode(mode) {
   currentMode = mode;
-  ['lasi','stapler','both'].forEach(m => {
-    const btn = document.getElementById('btn-'+m);
-    btn.className = 'mode-btn' + (mode===m ? ' active-'+m : '');
-  });
+  document.getElementById('btn-lasi').className = 'mode-btn' + (mode==='lasi' ? ' active-lasi' : '');
+  document.getElementById('btn-stapler').className = 'mode-btn' + (mode==='stapler' ? ' active-stapler' : '');
+  document.getElementById('btn-both').className = 'mode-btn' + (mode==='both' ? '' : '');
+  if(mode==='both') document.getElementById('btn-both').style.cssText='border-color:#9b59b6;color:#fff;background:#7d3c98;';
+  else document.getElementById('btn-both').style.cssText='border-color:#c39bd3;color:#4a235a;background:transparent;';
   renderChips();
-  document.getElementById('welcome-text').innerHTML = WELCOME[mode];
-  const sub = { lasi:'🚛 Ladungssicherung', stapler:'🏭 Staplerschulung', both:'⚡ LaSi + Stapler' };
-  document.getElementById('header-sub').textContent = sub[mode];
-  document.getElementById('answer-area').innerHTML =
-    `<div class="answer-box"><div class="answer-content">${WELCOME[mode]}</div></div>`;
 }
 
 function renderChips() {
   const area = document.getElementById('chips-area');
-  area.innerHTML = (CHIPS[currentMode]||[]).map(c =>
-    `<div class="chip ${currentMode}" onclick="askWithText('${c.replace(/'/g,"\\'")}')">${c}</div>`
+  const chips = CHIPS[currentMode] || [];
+  area.innerHTML = chips.map(c =>
+    `<div class="chip ${currentMode}" onclick="askWithText('${c.replace(/'/g,"\\'")}')">
+      ${c}
+    </div>`
   ).join('');
 }
 
@@ -343,16 +237,21 @@ async function askQuestion() {
   const input = document.getElementById('question-input');
   const question = input.value.trim();
   if(!question) return;
+
   input.value = '';
   document.getElementById('btn-ask').disabled = true;
 
-  document.getElementById('answer-area').innerHTML =
-    `<div class="loading-box"><div class="spinner"></div><span style="font-size:14px;color:#555;">Suche im Regelwerk...</span></div>`;
+  const answerArea = document.getElementById('answer-area');
+  answerArea.innerHTML = `
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <span style="font-size:14px;color:#555;">Suche im Regelwerk...</span>
+    </div>`;
 
   addToHistory(question, currentMode);
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -362,64 +261,109 @@ async function askQuestion() {
         messages: [{ role: 'user', content: question }]
       })
     });
-    const data = await res.json();
-    if(data.error) throw new Error(data.error.message);
-    const answer = data.content?.[0]?.text || 'Keine Antwort.';
-    const modeLabel = { lasi:'🚛 LaSi', stapler:'🏭 Stapler', both:'⚡ Beide' }[currentMode];
-    const modeBg = { lasi:'#eaf2ff', stapler:'#eafaf1', both:'#f5eeff' }[currentMode];
-    const modeColor = { lasi:'#1a5276', stapler:'#145a32', both:'#7d3c98' }[currentMode];
 
-    document.getElementById('answer-area').innerHTML = `
+    const data = await response.json();
+
+    if(data.error) throw new Error(data.error.message);
+
+    const answer = data.content?.[0]?.text || 'Keine Antwort erhalten.';
+    const modeLabel = { lasi: 'LaSi', stapler: 'Stapler', both: 'LaSi + Stapler' }[currentMode];
+    const modeColor = currentMode === 'lasi' ? '#1a5276' : currentMode === 'stapler' ? '#145a32' : '#7d3c98';
+    const modeBg = currentMode === 'lasi' ? '#eaf2ff' : currentMode === 'stapler' ? '#eafaf1' : '#f5eeff';
+
+    answerArea.innerHTML = `
       <div class="answer-box">
-        <div class="question-label">
+        <div class="question-label" style="display:flex;align-items:center;gap:8px;">
           <span style="background:${modeBg};color:${modeColor};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;">${modeLabel}</span>
           <span>Frage</span>
         </div>
-        <div class="question-text">${esc(question)}</div>
-        <div class="answer-content">${fmt(answer)}</div>
+        <div class="question-text">${escapeHtml(question)}</div>
+        <div class="answer-content">${formatAnswer(answer)}</div>
       </div>`;
+
   } catch(err) {
-    document.getElementById('answer-area').innerHTML =
-      `<div class="error-box"><strong>Fehler:</strong> ${esc(err.message)}</div>`;
+    answerArea.innerHTML = `<div class="error-box">
+      <strong>Fehler:</strong> ${escapeHtml(err.message)}<br>
+      <span style="font-size:12px;margin-top:6px;display:block;color:#666;">Prüfe die API-Verbindung.</span>
+    </div>`;
   }
+
   document.getElementById('btn-ask').disabled = false;
 }
 
-function fmt(text) {
+function formatAnswer(text) {
   return text
-    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g,'<em>$1</em>')
-    .replace(/\n\n/g,'</p><p>')
-    .replace(/\n/g,'<br>')
-    .replace(/^/,'<p>').replace(/$/,'</p>');
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\n\n/g, '</p><p class="paragraph">')
+    .replace(/\n/g, '<br>')
+    .replace(/^/, '<p class="paragraph">')
+    .replace(/$/, '</p>');
 }
-function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-function addToHistory(q, mode) {
-  history.unshift({q, mode});
-  if(history.length>5) history.pop();
-  const labels = { lasi:'🚛', stapler:'🏭', both:'⚡' };
-  document.getElementById('history-list').innerHTML = history.map(h =>
-    `<div class="history-item" onclick="askWithText('${h.q.replace(/'/g,"\\'")}')">
-      <div class="hist-mode">${labels[h.mode]} ${h.mode.toUpperCase()}</div>
-      ${esc(h.q.length>55 ? h.q.slice(0,55)+'…' : h.q)}
+function escapeHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function addToHistory(question, mode) {
+  history.unshift({ question, mode });
+  if(history.length > 5) history.pop();
+  renderHistory();
+}
+
+function renderHistory() {
+  const list = document.getElementById('history-list');
+  if(history.length === 0) {
+    list.innerHTML = '<div style="font-size:12px;color:#bbb;">Noch keine Fragen</div>';
+    return;
+  }
+  const modeLabel = { lasi: '🚛 LaSi', stapler: '🏭 Stapler', both: '⚡ Beide' };
+  list.innerHTML = history.map((h,i) =>
+    `<div class="history-item" onclick="askWithText('${h.question.replace(/'/g,"\\'")}')">
+      <div class="hist-mode">${modeLabel[h.mode]||''}</div>
+      ${escapeHtml(h.question.length > 55 ? h.question.slice(0,55)+'…' : h.question)}
     </div>`
   ).join('');
 }
 
 function toggleMic() {
-  if(!('webkitSpeechRecognition' in window)&&!('SpeechRecognition' in window)){
-    alert('Spracheingabe nur in Chrome verfügbar.');return;
+  if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    alert('Spracheingabe wird in diesem Browser nicht unterstützt. Bitte Chrome verwenden.');
+    return;
   }
-  if(isListening){recognition.stop();return;}
-  const SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(isListening) {
+    recognition.stop();
+    return;
+  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   recognition = new SR();
-  recognition.lang='de-DE';
-  recognition.onstart=()=>{ isListening=true; document.getElementById('btn-mic').classList.add('listening'); };
-  recognition.onresult=(e)=>{ document.getElementById('question-input').value=e.results[0][0].transcript; };
-  recognition.onend=()=>{ isListening=false; document.getElementById('btn-mic').classList.remove('listening'); };
+  recognition.lang = 'de-DE';
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = () => {
+    isListening = true;
+    document.getElementById('btn-mic').classList.add('listening');
+    document.getElementById('btn-mic').title = 'Aufnahme läuft...';
+  };
+  recognition.onresult = (e) => {
+    const text = e.results[0][0].transcript;
+    document.getElementById('question-input').value = text;
+  };
+  recognition.onend = () => {
+    isListening = false;
+    document.getElementById('btn-mic').classList.remove('listening');
+    document.getElementById('btn-mic').title = 'Spracheingabe';
+  };
+  recognition.onerror = () => {
+    isListening = false;
+    document.getElementById('btn-mic').classList.remove('listening');
+  };
   recognition.start();
 }
+
+setMode('lasi');
+renderHistory();
 </script>
 </body>
 </html>
